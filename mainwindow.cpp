@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QFile>
 
-const unsigned char dataByteWin1251[] =
+const unsigned char dataControlByteWin1251[] =
 {
     0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F, //0..15]
     0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F,
@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {   
-    dataStringUTF8 << "\x00" <<   "\x01" <<  "\x02" <<  "\x03" <<  "\x04" <<  "\x05" <<  "\x06" <<  "\x07" <<  "\x08" <<  "\x09" <<  "\x0A" <<  "\x0B" <<  "\x0C" <<  "\x0D" <<  "\x0E" <<  "\x0F"
+    dataControlStringUTF8 << "\x00" <<   "\x01" <<  "\x02" <<  "\x03" <<  "\x04" <<  "\x05" <<  "\x06" <<  "\x07" <<  "\x08" <<  "\x09" <<  "\x0A" <<  "\x0B" <<  "\x0C" <<  "\x0D" <<  "\x0E" <<  "\x0F"
                    << "\x10" <<   "\x11" <<  "\x12" <<  "\x13" <<  "\x14" <<  "\x15" <<  "\x16" <<  "\x17" <<  "\x18" <<  "\x19" <<  "\x1A" <<  "\x1B" <<  "\x1C" <<  "\x1D" <<  "\x1E" <<  "\x1F"
                    << "\x20" <<   "\x21" <<  "\x22" <<  "\x23" <<  "\x24" <<  "\x25" <<  "\x26" <<  "\x27" <<  "\x28" <<  "\x29" <<  "\x2A" <<  "\x2B" <<  "\x2C" <<  "\x2D" <<  "\x2E" <<  "\x2F"
                    << "\x30" <<   "\x31" <<  "\x32" <<  "\x33" <<  "\x34" <<  "\x35" <<  "\x36" <<  "\x37" <<  "\x38" <<  "\x39" <<  "\x3A" <<  "\x3B" <<  "\x3C" <<  "\x3D" <<  "\x3E" <<  "\x3F"
@@ -101,40 +101,45 @@ MainWindow::MainWindow(QWidget *parent) :
 //*************************************************************
 //*************************************************************
 //*************************************************************
-void MainWindow::encode_UTFtoWIN(QByteArray data)
+QByteArray MainWindow::encode_UTFtoWIN(QByteArray data)
 {
-    hash["one"] = 1;
-    qDebug() << hash["one"];
-
-//    QString dataStr = data;
-//    for(int i = 0; i < dataStr.size(); i++)
-//    {
-//        hash[dataStringUTF8[i]] = i;
-//    }
-//    for(int i = 0; i < dataStr.size(); i++)
-//    {
-//        massiv_W1251.append(hash[dataStr[i]]);
-//    }
-
+    massivOut_W1251.clear();
+    QString dataStr = data;
+    qDebug() << data;
+    for(int i = 0; i < dataStr.size(); i++)
+        {
+            for(int j = 0; j < 256; j ++)
+            {
+                if(QString(dataStr[i]) == dataControlStringUTF8[j])
+                {
+                    massivOut_W1251.append(dataControlByteWin1251[j]);
+                    continue;
+                }
+            }
+        }
+    qDebug() << massivOut_W1251;
+    return massivOut_UTF8;
 }
 //*************************************************************
 QByteArray MainWindow::encode_WINtoUTF(QByteArray data)
 {
+    qDebug() << data;
     //qDebug() << data << "\n" << QString(data);
-    massiv_UTF8.clear();
+    massivOut_UTF8.clear();
     for(int i = 0; i < data.size(); i++)
     {
         for(int j = 0; j < 256; j++)
         {
-            if(data[i].operator ==(dataByteWin1251[j]))
+            if(data[i].operator ==(dataControlByteWin1251[j]))
             {
-                massiv_UTF8.append(dataStringUTF8[j]);
+                massivOut_UTF8.append(dataControlStringUTF8[j]);
                 continue;
             }
         }
     }
-    return massiv_UTF8;
-    //qDebug() << massiv_UTF8 << "\n" << QString(massiv_UTF8);
+    qDebug() << massivOut_UTF8;
+    return massivOut_UTF8;
+    //qDebug() << massivOut_UTF8 << "\n" << QString(massivOut_UTF8);
 }
 //*************************************************************
 void MainWindow::on_pushButton_2_ReadFile_clicked()
@@ -152,6 +157,7 @@ void MainWindow::on_pushButton_2_ReadFile_clicked()
         {
             myFile.open(QIODevice::ReadOnly);
             myTestMassiv = myFile.readAll();
+            qDebug() << myTestMassiv;
             ui->lineEdit->setText(QString(myTestMassiv));
         }
     } else qDebug() << "File not found!!!";
@@ -159,18 +165,18 @@ void MainWindow::on_pushButton_2_ReadFile_clicked()
 //*************************************************************
 void MainWindow::on_pushButton_Translate_clicked()
 {
-
+    ui->lineEdit_2->clear();
     if(myTestMassiv.size() != 0)
     {
         if(ui->label_3->text() == "W1251")
         {
             encode_WINtoUTF(myTestMassiv);
-            ui->lineEdit_2->setText(massiv_UTF8);
+            ui->lineEdit_2->setText(massivOut_UTF8);
         }
         else
         {
             encode_UTFtoWIN(myTestMassiv);
-            ui->lineEdit_2->setText(massiv_W1251);
+            ui->lineEdit_2->setText(massivOut_W1251);
         }
     }else qDebug() << "Massiv is empty!";
 
@@ -199,3 +205,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_lineEdit_editingFinished()
+{
+    if(ui->label_3->text() == "W1251")
+    {
+        myTestMassiv = ui->lineEdit->text().toLocal8Bit();
+        qDebug() << myTestMassiv;
+    }else
+    {
+        myTestMassiv = ui->lineEdit->text().toUtf8();
+    }
+}
