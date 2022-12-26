@@ -34,7 +34,7 @@ private:
     QByteArray massivOut_W1251;
     QByteArray massivOut_UTF8;
     QVector <QString> dataControlStringUTF8;
-    QHash <QChar, int> dataControlHashUTF8;
+    QHash <QString, int> dataControlHashUTF8;
 
 private slots:
     QByteArray encode_UTFtoWIN(QByteArray dataIn);

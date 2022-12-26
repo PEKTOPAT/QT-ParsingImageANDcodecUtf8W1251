@@ -103,35 +103,18 @@ MainWindow::MainWindow(QWidget *parent) :
 //*************************************************************
 QByteArray MainWindow::encode_UTFtoWIN(QByteArray data)
 {
+    timeer.start();
     QString dataStr = data;
     for(int i = 0; i < dataControlStringUTF8.size(); i++)
     {
-
-
         quint8 ind = dataControlByteWin1251[i];
         dataControlHashUTF8[dataControlStringUTF8[i]] = ind;
     }
-    qDebug() << dataControlHashUTF8["\xD1\x8F"] << dataStr[0] << dataControlHashUTF8[dataStr[1]];
-
-//    for(int i = 0; i < dataStr.size(); i++)
-//    {
-//        massivOut_W1251.append(dataControlHashUTF8[dataStr[i]]);
-//    }
-    //    timeer.start();
-    //    massivOut_W1251.clear();
-    //    QString dataStr = data;
-    //    for(int i = 0; i < dataStr.size(); i++)
-    //        {
-    //            for(int j = 0; j < 256; j ++)
-    //            {
-    //                if(QString(dataStr[i]) == dataControlStringUTF8[j])
-    //                {
-    //                    massivOut_W1251.append(dataControlByteWin1251[j]);
-    //                    continue;
-    //                }
-    //            }
-    //        }
-    //    qDebug() << timeer.nsecsElapsed();
+    for(int i = 0; i < dataStr.size(); i++)
+    {
+        massivOut_W1251.append(dataControlHashUTF8[dataStr.at(i)]);
+    }
+    qDebug() << timeer.nsecsElapsed();
     return massivOut_W1251;
 }
 //*************************************************************
