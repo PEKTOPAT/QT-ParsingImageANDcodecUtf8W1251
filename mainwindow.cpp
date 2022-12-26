@@ -29,27 +29,27 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {   
     dataControlStringUTF8 << "\x00" <<   "\x01" <<  "\x02" <<  "\x03" <<  "\x04" <<  "\x05" <<  "\x06" <<  "\x07" <<  "\x08" <<  "\x09" <<  "\x0A" <<  "\x0B" <<  "\x0C" <<  "\x0D" <<  "\x0E" <<  "\x0F"
-                   << "\x10" <<   "\x11" <<  "\x12" <<  "\x13" <<  "\x14" <<  "\x15" <<  "\x16" <<  "\x17" <<  "\x18" <<  "\x19" <<  "\x1A" <<  "\x1B" <<  "\x1C" <<  "\x1D" <<  "\x1E" <<  "\x1F"
-                   << "\x20" <<   "\x21" <<  "\x22" <<  "\x23" <<  "\x24" <<  "\x25" <<  "\x26" <<  "\x27" <<  "\x28" <<  "\x29" <<  "\x2A" <<  "\x2B" <<  "\x2C" <<  "\x2D" <<  "\x2E" <<  "\x2F"
-                   << "\x30" <<   "\x31" <<  "\x32" <<  "\x33" <<  "\x34" <<  "\x35" <<  "\x36" <<  "\x37" <<  "\x38" <<  "\x39" <<  "\x3A" <<  "\x3B" <<  "\x3C" <<  "\x3D" <<  "\x3E" <<  "\x3F"
-                   << "\x40" <<   "\x41" <<  "\x42" <<  "\x43" <<  "\x44" <<  "\x45" <<  "\x46" <<  "\x47" <<  "\x48" <<  "\x49" <<  "\x4A" <<  "\x4B" <<  "\x4C" <<  "\x4D" <<  "\x4E" <<  "\x4F"
-                   << "\x50" <<   "\x51" <<  "\x52" <<  "\x53" <<  "\x54" <<  "\x55" <<  "\x56" <<  "\x57" <<  "\x58" <<  "\x59" <<  "\x5A" <<  "\x5B" <<  "\x5C" <<  "\x5D" <<  "\x5E" <<  "\x5F"
-                   << "\x60" <<   "\x61" <<  "\x62" <<  "\x63" <<  "\x64" <<  "\x65" <<  "\x66" <<  "\x67" <<  "\x68" <<  "\x69" <<  "\x6A" <<  "\x6B" <<  "\x6C" <<  "\x6D" <<  "\x6E" <<  "\x6F"
-                   << "\x70" <<   "\x71" <<  "\x72" <<  "\x73" <<  "\x74" <<  "\x75" <<  "\x76" <<  "\x77" <<  "\x78" <<  "\x79" <<  "\x7A" <<  "\x7B" <<  "\x7C" <<  "\x7D" <<  "\x7E" <<  "\x7F"  //..127]
-                   << "\xD0\x82"     <<  "\xD0\x83"     <<      "\xE2\x80\x9A" <<      "\xD1\x93"     <<      "\xE2\x80\x9E" <<      "\xE2\x80\xA6" <<      "\xE2\x80\xA0"
-                   << "\xE2\x80\xA1" <<  "\xE2\x82\xAC" <<      "\xE2\x80\xB0" <<      "\xD0\x89"     <<      "\xE2\x80\xB9" <<      "\xD0\x8A"     <<      "\xD0\x8C"
-                   << "\xD0\x8B"     <<  "\xD0\x8F"     <<      "\xD1\x92"     <<      "\xE2\x80\x98" <<      "\xE2\x80\x99" <<      "\xE2\x80\x9C" <<      "\xE2\x80\x9D"
-                   << "\xE2\x80\xA2" <<  "\xE2\x80\x93" <<      "\xE2\x80\x94" <<      "null"         <<      "\xE2\x84\xA2" <<      "\xD1\x99"     <<      "\xE2\x80\xBA"
-                   << "\xD1\x9A"     <<  "\xD1\x9C"     <<      "\xD1\x9B"     <<      "\xD1\x9F"     <<      "0xA0"         <<      "\xD0\x8E"     <<      "\xD1\x9E"
-                   << "\xD0\x88"     <<  "\xC2\xA4"     <<      "\xD2\x90"     <<      "\xC2\xA6"     <<      "\xC2\xA7"     <<      "\xD0\x81"     <<      "\xC2\xA9" <<      "\xD0\x84"
-                   << "\xC2\xAB"     <<  "\xC2\xAC"     <<      "\xE2\x80\x93" <<      "\xC2\xAE"     <<      "\xD0\x87"     <<      "\xC2\xB0"     <<      "\xC2\xB1" <<      "\xD0\x86" <<  "\xD1\x96" <<  "\xD2\x91"  //...180]
-                   << "\xC2\xB5"     <<  "\xC2\xB6"     <<      "\xC2\xB7"     <<      "\xD1\x91"     <<      "\xE2\x84\x96" <<      "\xD1\x94"     <<      "\xC2\xBB" <<      "\xD1\x98" <<  "\xD0\x85" <<  "\xD1\x95" //...190]
-                   << "\xD1\x97"     <<  "\xD0\x90"     <<      "\xD0\x91"     <<      "\xD0\x92"     <<      "\xD0\x93"     <<      "\xD0\x94"     <<      "\xD0\x95" <<      "\xD0\x96" <<  "\xD0\x97" <<  "\xD0\x98" //...200]
-                   << "\xD0\x99"     <<  "\xD0\x9A"     <<      "\xD0\x9B"     <<      "\xD0\x9C"     <<      "\xD0\x9D"     <<      "\xD0\x9E"     <<      "\xD0\x9F" <<      "\xD0\xA0" <<  "\xD0\xA1" <<  "\xD0\xA2" <<  "\xD0\xA3"
-                   << "\xD0\xA4"     <<  "\xD0\xA5"     <<      "\xD0\xA6"     <<      "\xD0\xA7"     <<      "\xD0\xA8"     <<      "\xD0\xA9"     <<      "\xD0\xAA" <<      "\xD0\xAB" <<  "\xD0\xAC" <<  "\xD0\xAD" <<  "\xD0\xAE"
-                   << "\xD0\xAF"     <<  "\xD0\xB0"     <<      "\xD0\xB1"     <<      "\xD0\xB2"     <<      "\xD0\xB3"     <<      "\xD0\xB4"     <<      "\xD0\xB5" <<      "\xD0\xB6" <<  "\xD0\xB7" <<  "\xD0\xB8" <<  "\xD0\xB9"
-                   << "\xD0\xBA"     <<  "\xD0\xBB"     <<      "\xD0\xBC"     <<      "\xD0\xBD"     <<      "\xD0\xBE"     <<      "\xD0\xBF"     <<      "\xD1\x80" <<      "\xD1\x81" <<  "\xD1\x82" <<  "\xD1\x83" <<  "\xD1\x84"
-                   << "\xD1\x85"     <<  "\xD1\x86"     <<      "\xD1\x87"     <<      "\xD1\x88"     <<      "\xD1\x89"     <<      "\xD1\x8A"     <<      "\xD1\x8B" <<      "\xD1\x8C" <<  "\xD1\x8D" <<  "\xD1\x8E" <<  "\xD1\x8F"; //...255]
+                          << "\x10" <<   "\x11" <<  "\x12" <<  "\x13" <<  "\x14" <<  "\x15" <<  "\x16" <<  "\x17" <<  "\x18" <<  "\x19" <<  "\x1A" <<  "\x1B" <<  "\x1C" <<  "\x1D" <<  "\x1E" <<  "\x1F"
+                          << "\x20" <<   "\x21" <<  "\x22" <<  "\x23" <<  "\x24" <<  "\x25" <<  "\x26" <<  "\x27" <<  "\x28" <<  "\x29" <<  "\x2A" <<  "\x2B" <<  "\x2C" <<  "\x2D" <<  "\x2E" <<  "\x2F"
+                          << "\x30" <<   "\x31" <<  "\x32" <<  "\x33" <<  "\x34" <<  "\x35" <<  "\x36" <<  "\x37" <<  "\x38" <<  "\x39" <<  "\x3A" <<  "\x3B" <<  "\x3C" <<  "\x3D" <<  "\x3E" <<  "\x3F"
+                          << "\x40" <<   "\x41" <<  "\x42" <<  "\x43" <<  "\x44" <<  "\x45" <<  "\x46" <<  "\x47" <<  "\x48" <<  "\x49" <<  "\x4A" <<  "\x4B" <<  "\x4C" <<  "\x4D" <<  "\x4E" <<  "\x4F"
+                          << "\x50" <<   "\x51" <<  "\x52" <<  "\x53" <<  "\x54" <<  "\x55" <<  "\x56" <<  "\x57" <<  "\x58" <<  "\x59" <<  "\x5A" <<  "\x5B" <<  "\x5C" <<  "\x5D" <<  "\x5E" <<  "\x5F"
+                          << "\x60" <<   "\x61" <<  "\x62" <<  "\x63" <<  "\x64" <<  "\x65" <<  "\x66" <<  "\x67" <<  "\x68" <<  "\x69" <<  "\x6A" <<  "\x6B" <<  "\x6C" <<  "\x6D" <<  "\x6E" <<  "\x6F"
+                          << "\x70" <<   "\x71" <<  "\x72" <<  "\x73" <<  "\x74" <<  "\x75" <<  "\x76" <<  "\x77" <<  "\x78" <<  "\x79" <<  "\x7A" <<  "\x7B" <<  "\x7C" <<  "\x7D" <<  "\x7E" <<  "\x7F"  //..127]
+                          << "\xD0\x82"     <<  "\xD0\x83"     <<      "\xE2\x80\x9A" <<      "\xD1\x93"     <<      "\xE2\x80\x9E" <<      "\xE2\x80\xA6" <<      "\xE2\x80\xA0"
+                          << "\xE2\x80\xA1" <<  "\xE2\x82\xAC" <<      "\xE2\x80\xB0" <<      "\xD0\x89"     <<      "\xE2\x80\xB9" <<      "\xD0\x8A"     <<      "\xD0\x8C"
+                          << "\xD0\x8B"     <<  "\xD0\x8F"     <<      "\xD1\x92"     <<      "\xE2\x80\x98" <<      "\xE2\x80\x99" <<      "\xE2\x80\x9C" <<      "\xE2\x80\x9D"
+                          << "\xE2\x80\xA2" <<  "\xE2\x80\x93" <<      "\xE2\x80\x94" <<      "null"         <<      "\xE2\x84\xA2" <<      "\xD1\x99"     <<      "\xE2\x80\xBA"
+                          << "\xD1\x9A"     <<  "\xD1\x9C"     <<      "\xD1\x9B"     <<      "\xD1\x9F"     <<      "0xA0"         <<      "\xD0\x8E"     <<      "\xD1\x9E"
+                          << "\xD0\x88"     <<  "\xC2\xA4"     <<      "\xD2\x90"     <<      "\xC2\xA6"     <<      "\xC2\xA7"     <<      "\xD0\x81"     <<      "\xC2\xA9" <<      "\xD0\x84"
+                          << "\xC2\xAB"     <<  "\xC2\xAC"     <<      "\xE2\x80\x93" <<      "\xC2\xAE"     <<      "\xD0\x87"     <<      "\xC2\xB0"     <<      "\xC2\xB1" <<      "\xD0\x86" <<  "\xD1\x96" <<  "\xD2\x91"  //...180]
+                          << "\xC2\xB5"     <<  "\xC2\xB6"     <<      "\xC2\xB7"     <<      "\xD1\x91"     <<      "\xE2\x84\x96" <<      "\xD1\x94"     <<      "\xC2\xBB" <<      "\xD1\x98" <<  "\xD0\x85" <<  "\xD1\x95" //...190]
+                          << "\xD1\x97"     <<  "\xD0\x90"     <<      "\xD0\x91"     <<      "\xD0\x92"     <<      "\xD0\x93"     <<      "\xD0\x94"     <<      "\xD0\x95" <<      "\xD0\x96" <<  "\xD0\x97" <<  "\xD0\x98" //...200]
+                          << "\xD0\x99"     <<  "\xD0\x9A"     <<      "\xD0\x9B"     <<      "\xD0\x9C"     <<      "\xD0\x9D"     <<      "\xD0\x9E"     <<      "\xD0\x9F" <<      "\xD0\xA0" <<  "\xD0\xA1" <<  "\xD0\xA2" <<  "\xD0\xA3"
+                          << "\xD0\xA4"     <<  "\xD0\xA5"     <<      "\xD0\xA6"     <<      "\xD0\xA7"     <<      "\xD0\xA8"     <<      "\xD0\xA9"     <<      "\xD0\xAA" <<      "\xD0\xAB" <<  "\xD0\xAC" <<  "\xD0\xAD" <<  "\xD0\xAE"
+                          << "\xD0\xAF"     <<  "\xD0\xB0"     <<      "\xD0\xB1"     <<      "\xD0\xB2"     <<      "\xD0\xB3"     <<      "\xD0\xB4"     <<      "\xD0\xB5" <<      "\xD0\xB6" <<  "\xD0\xB7" <<  "\xD0\xB8" <<  "\xD0\xB9"
+                          << "\xD0\xBA"     <<  "\xD0\xBB"     <<      "\xD0\xBC"     <<      "\xD0\xBD"     <<      "\xD0\xBE"     <<      "\xD0\xBF"     <<      "\xD1\x80" <<      "\xD1\x81" <<  "\xD1\x82" <<  "\xD1\x83" <<  "\xD1\x84"
+                          << "\xD1\x85"     <<  "\xD1\x86"     <<      "\xD1\x87"     <<      "\xD1\x88"     <<      "\xD1\x89"     <<      "\xD1\x8A"     <<      "\xD1\x8B" <<      "\xD1\x8C" <<  "\xD1\x8D" <<  "\xD1\x8E" <<  "\xD1\x8F"; //...255]
     NameFile = "dataWindows2.txt";
 
 
@@ -103,43 +103,49 @@ MainWindow::MainWindow(QWidget *parent) :
 //*************************************************************
 QByteArray MainWindow::encode_UTFtoWIN(QByteArray data)
 {
-    massivOut_W1251.clear();
     QString dataStr = data;
-    qDebug() << data;
-    for(int i = 0; i < dataStr.size(); i++)
-        {
-            for(int j = 0; j < 256; j ++)
-            {
-                if(QString(dataStr[i]) == dataControlStringUTF8[j])
-                {
-                    massivOut_W1251.append(dataControlByteWin1251[j]);
-                    continue;
-                }
-            }
-        }
-    qDebug() << massivOut_W1251;
-    return massivOut_UTF8;
+    for(int i = 0; i < dataControlStringUTF8.size(); i++)
+    {
+
+
+        quint8 ind = dataControlByteWin1251[i];
+        dataControlHashUTF8[dataControlStringUTF8[i]] = ind;
+    }
+    qDebug() << dataControlHashUTF8["\xD1\x8F"] << dataStr[0] << dataControlHashUTF8[dataStr[1]];
+
+//    for(int i = 0; i < dataStr.size(); i++)
+//    {
+//        massivOut_W1251.append(dataControlHashUTF8[dataStr[i]]);
+//    }
+    //    timeer.start();
+    //    massivOut_W1251.clear();
+    //    QString dataStr = data;
+    //    for(int i = 0; i < dataStr.size(); i++)
+    //        {
+    //            for(int j = 0; j < 256; j ++)
+    //            {
+    //                if(QString(dataStr[i]) == dataControlStringUTF8[j])
+    //                {
+    //                    massivOut_W1251.append(dataControlByteWin1251[j]);
+    //                    continue;
+    //                }
+    //            }
+    //        }
+    //    qDebug() << timeer.nsecsElapsed();
+    return massivOut_W1251;
 }
 //*************************************************************
 QByteArray MainWindow::encode_WINtoUTF(QByteArray data)
 {
-    qDebug() << data;
-    //qDebug() << data << "\n" << QString(data);
+    timeer1.start();
     massivOut_UTF8.clear();
     for(int i = 0; i < data.size(); i++)
     {
-        for(int j = 0; j < 256; j++)
-        {
-            if(data[i].operator ==(dataControlByteWin1251[j]))
-            {
-                massivOut_UTF8.append(dataControlStringUTF8[j]);
-                continue;
-            }
-        }
+        quint8 ind = data[i];
+        massivOut_UTF8.append(dataControlStringUTF8[ind]);
     }
-    qDebug() << massivOut_UTF8;
+    qDebug() << timeer1.nsecsElapsed();
     return massivOut_UTF8;
-    //qDebug() << massivOut_UTF8 << "\n" << QString(massivOut_UTF8);
 }
 //*************************************************************
 void MainWindow::on_pushButton_2_ReadFile_clicked()
@@ -157,7 +163,7 @@ void MainWindow::on_pushButton_2_ReadFile_clicked()
         {
             myFile.open(QIODevice::ReadOnly);
             myTestMassiv = myFile.readAll();
-            qDebug() << myTestMassiv;
+            //qDebug() << myTestMassiv;
             ui->lineEdit->setText(QString(myTestMassiv));
         }
     } else qDebug() << "File not found!!!";

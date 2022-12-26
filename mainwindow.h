@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QHash>
+#include <QElapsedTimer>
 
 namespace Ui {
 class MainWindow;
@@ -25,15 +26,15 @@ private:
     QImage myImage;
     unsigned char *massiv;
 
-
+    QElapsedTimer timeer;
+    QElapsedTimer timeer1;
     QString NameFile;
     //*********************
     QByteArray myTestMassiv;
     QByteArray massivOut_W1251;
     QByteArray massivOut_UTF8;
     QVector <QString> dataControlStringUTF8;
-    QHash <QString, int> dataControlHashUTF8;
-    QHash <QChar, int> dataHashIn;
+    QHash <QChar, int> dataControlHashUTF8;
 
 private slots:
     QByteArray encode_UTFtoWIN(QByteArray dataIn);
