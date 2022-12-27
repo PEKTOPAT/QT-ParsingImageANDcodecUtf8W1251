@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    datacodek.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    datacodek.h
 
 FORMS    += mainwindow.ui
