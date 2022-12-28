@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <datacodek.h>
 
 #include <QImage>
 #include <QDebug>
@@ -28,9 +29,9 @@ private:
 
 //    QElapsedTimer timeer;
 //    QElapsedTimer timeer1;
-//    QString NameFile;
+    QString NameFile;
     //*********************
-//    QByteArray myTestMassiv;
+    QByteArray myTestMassiv;
 //    QByteArray massivOut_W1251;
 //    QByteArray massivOut_UTF8;
 //    QVector <QString> dataControlStringUTF8;

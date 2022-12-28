@@ -10,15 +10,12 @@ class DataCodek
 {
   public:
     DataCodek();
-  private:
-    QByteArray myTestMassiv;
-    QByteArray massivOut_W1251;
-    QByteArray massivOut_UTF8;
-    QVector <QString> dataControlStringUTF8;
-    QHash <QString, int> dataControlHashUTF8;
-
     static QByteArray encode_UTFtoWIN(QByteArray dataIn);
-    static QByteArray encode_WINtoUTF(QByteArray data);
+    static QByteArray encode_WINtoUTF(QByteArray dataIn);
+
+  private:
+    static const unsigned char dataControlByteWin1251[256];
+    static const QVector<QString> dataControlStringUTF8;
 };
 
 #endif // DATACODEK_H

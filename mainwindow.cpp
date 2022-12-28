@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent) :
 //                          << "\xD0\xAF"     <<  "\xD0\xB0"     <<      "\xD0\xB1"     <<      "\xD0\xB2"     <<      "\xD0\xB3"     <<      "\xD0\xB4"     <<      "\xD0\xB5" <<      "\xD0\xB6" <<  "\xD0\xB7" <<  "\xD0\xB8" <<  "\xD0\xB9"
 //                          << "\xD0\xBA"     <<  "\xD0\xBB"     <<      "\xD0\xBC"     <<      "\xD0\xBD"     <<      "\xD0\xBE"     <<      "\xD0\xBF"     <<      "\xD1\x80" <<      "\xD1\x81" <<  "\xD1\x82" <<  "\xD1\x83" <<  "\xD1\x84"
 //                          << "\xD1\x85"     <<  "\xD1\x86"     <<      "\xD1\x87"     <<      "\xD1\x88"     <<      "\xD1\x89"     <<      "\xD1\x8A"     <<      "\xD1\x8B" <<      "\xD1\x8C" <<  "\xD1\x8D" <<  "\xD1\x8E" <<  "\xD1\x8F"; //...255]
-//    NameFile = "dataWindows2.txt";
+    NameFile = "dataWindows2.txt";
 
 
     QFile file("out.txt");
@@ -132,59 +132,58 @@ MainWindow::MainWindow(QWidget *parent) :
 //*************************************************************
 void MainWindow::on_pushButton_2_ReadFile_clicked()
 {
-//    ui->label_3->setStyleSheet("QLabel {color : blue; }");
-//    ui->label_4->setStyleSheet("QLabel {color : blue; }");
-//    myTestMassiv.clear();
-//    QFile myFile(NameFile);
-//    if(myFile.exists())
-//    {
-//        if(myFile.isOpen())
-//        {
+    ui->label_3->setStyleSheet("QLabel {color : blue; }");
+    ui->label_4->setStyleSheet("QLabel {color : blue; }");
+    myTestMassiv.clear();
+    QFile myFile(NameFile);
+    if(myFile.exists())
+    {
+        if(myFile.isOpen())
+        {
 
-//        }else
-//        {
-//            myFile.open(QIODevice::ReadOnly);
-//            myTestMassiv = myFile.readAll();
-//            //qDebug() << myTestMassiv;
-//            ui->lineEdit->setText(QString(myTestMassiv));
-//        }
-//    } else qDebug() << "File not found!!!";
+        }else
+        {
+            myFile.open(QIODevice::ReadOnly);
+            myTestMassiv = myFile.readAll();
+            //qDebug() << myTestMassiv;
+            ui->lineEdit->setText(QString(myTestMassiv));
+        }
+    } else qDebug() << "File not found!!!";
 }
 //*************************************************************
 void MainWindow::on_pushButton_Translate_clicked()
 {
-//    ui->lineEdit_2->clear();
-//    if(myTestMassiv.size() != 0)
-//    {
-//        if(ui->label_3->text() == "W1251")
-//        {
-//            encode_WINtoUTF(myTestMassiv);
-//            ui->lineEdit_2->setText(massivOut_UTF8);
-//        }
-//        else
-//        {
-//            encode_UTFtoWIN(myTestMassiv);
-//            ui->lineEdit_2->setText(massivOut_W1251);
-//        }
-//    }else qDebug() << "Massiv is empty!";
+    ui->lineEdit_2->clear();
+    if(myTestMassiv.size() != 0)
+    {
+        if(ui->label_3->text() == "W1251")
+        {
+            //encode_WINtoUTF(myTestMassiv);
+            ui->lineEdit_2->setText(DataCodek::encode_WINtoUTF(myTestMassiv));
+        }
+        else
+        {
+            ui->lineEdit_2->setText(DataCodek::encode_UTFtoWIN(myTestMassiv));
+        }
+    }else qDebug() << "Massiv is empty!";
 
 }
 //*************************************************************
 void MainWindow::on_pushButton_SwitchCode_clicked()
 {
-//    ui->lineEdit->clear();
-//    ui->lineEdit_2->clear();
-//    if(ui->label_3->text() == "W1251")
-//    {
-//        ui->label_3->setText("UTF8");
-//        ui->label_4->setText("W1251");
-//        NameFile = "dataWindows.txt";
-//    }else
-//    {
-//        ui->label_3->setText("W1251");
-//        ui->label_4->setText("UTF8");
-//        NameFile = "dataWindows2.txt";
-//    }
+    ui->lineEdit->clear();
+    ui->lineEdit_2->clear();
+    if(ui->label_3->text() == "W1251")
+    {
+        ui->label_3->setText("UTF8");
+        ui->label_4->setText("W1251");
+        NameFile = "dataWindows.txt";
+    }else
+    {
+        ui->label_3->setText("W1251");
+        ui->label_4->setText("UTF8");
+        NameFile = "dataWindows2.txt";
+    }
 
 }
 //*************************************************************
